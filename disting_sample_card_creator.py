@@ -10,7 +10,7 @@ import shutil
 import soundfile
 
 
-def check_file(dirpath, filenames):
+def check_files(dirpath, filenames):
     error_flag = False
     for filename in filenames:
         if filename == '.DS_Store':
@@ -129,8 +129,8 @@ def main():
     directory = args.directory
     skip_renaming = args.skip_renaming
     for (dirpath, dirnames, filenames) in os.walk(directory):
+        check_files(dirpath, filenames)
         make_directories(dirpath, filenames)
-        check_file(dirpath, filenames)
         if skip_renaming is False:
             rename_files(dirpath, filenames)
             # If files have been renamed, you need to get the new list of filenames.
