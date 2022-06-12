@@ -45,7 +45,7 @@ def check_files(dirpath, filenames):
                     continue
                 soundfile.SoundFile.close(wav_file_data)
             except:
-                print(f"\t[1] {filename} is not an audio file.")
+                print(f"\t[1] {filename} is not a WAV file.")
                 error_flag = True
     if error_flag == False:
         print("\nNo errors found. Continuing...\n")
@@ -76,7 +76,7 @@ def generate_filename():
 def make_directories(dirpath, filenames):
     counter = 0
     file_count = len(filenames)
-    directory_count = math.ceil(file_count / 16)
+    directory_count = math.ceil(file_count / 8)
     while counter < directory_count:
         print(f"Creating directory {dirpath}/{counter}")
         os.mkdir(f'{dirpath}/{counter}')
@@ -87,12 +87,12 @@ def make_directories(dirpath, filenames):
 
 def move_files(dirpath, filenames):
     file_count = len(filenames)
-    directory_count = math.ceil(file_count / 16)
+    directory_count = math.ceil(file_count / 8)
     random.shuffle(filenames)
     directory_counter = 0
     while directory_counter < directory_count:
         file_counter = 0
-        while file_counter < 16:
+        while file_counter < 8:
             try:
                 filename = filenames.pop(0)
             except:
