@@ -10,7 +10,7 @@ This script:
     - [0-9], [a-z], [A-Z]
     - Preserve the `.wav` file extension
 - Figures out how many folders to create
-    - No folder should have more than 16 files in it
+    - No folder should have more than 8 files in it
 - Creates the required number of folders
 - Randomly moves the files into the folders
-    - Again, no more than 16 files per folder
+    - Again, no more than 8 files per folder
